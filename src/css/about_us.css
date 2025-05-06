@@ -1,0 +1,76 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    z-index: 1010; /* Higher than default content */
+    transition: transform 0.3s ease-in-out; /* For smooth toggle */
+}
+
+.sidebar.collapsed {
+    transform: translateX(-250px);
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out; /* For smooth toggle */
+}
+
+.main-content.collapsed {
+    margin-left: 0;
+}
+
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1020; /* Even higher than sidebar */
+    display: none; /* Initially hidden on larger screens */
+}
+
+.container {
+    max-width: 80%;
+    
+    border: none;
+  }
+  /* Or */
+  .card {
+    max-width: 75%;
+    justify-content: space-between;
+    border: none;
+  }
+  .container {
+    padding: 0;
+  }
+
+.profile{
+    max-width: 60%;
+}
+
+
+/* Show toggle button on smaller screens */
+@media (max-width: 768px) {
+    .toggle-button {
+        display: block;
+    }
+    .sidebar {
+        transform: translateX(-250px); /* Initially hidden on small screens */
+    }
+    .sidebar.show {
+        transform: translateX(0); /* Show sidebar when toggled */
+    }
+    .main-content {
+        margin-left: 0; /* No left margin on small screens */
+    }
+    .main-content.shifted {
+        margin-left: 250px; /* Shift content when sidebar is shown */
+    }
+}
