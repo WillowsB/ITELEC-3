@@ -83,8 +83,6 @@
     <main class="main-content">
     
         
-
-
         <main class="main-content">
 
             <h5 class="heading fs-1">CONTACT US</h5>
@@ -122,9 +120,6 @@
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
                 <label for="floatingTextarea2">Comments</label>
               </div>
-<<<<<<< Updated upstream
-    
-=======
 
 
               <div class="d-grid gap-2 col-6 mx-auto py-5">
@@ -138,6 +133,7 @@
                     
                     <div class="check-icon mb-3 ">
                         <i class="fa-solid fa-circle-check fa-3x text-success"></i>
+                        
                     </div>
             
                     <h4 class="mb-2">Form Submitted!</h4>
@@ -146,15 +142,7 @@
                 </div>
             </div>
 
-          
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-    
+
         </main>
           
 
@@ -177,16 +165,23 @@
                 mainContent.classList.remove('shifted');
             }
         });
+
+          // Form submission popup
+          const submitBtn = document.getElementById('submitBtn');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const popupClose = document.getElementById('popupClose');
+
+        submitBtn.addEventListener('click', () => {
+            popupOverlay.classList.add('show');
+        });
+
+        popupClose.addEventListener('click', () => {
+            popupOverlay.classList.remove('show');
+        });
     </script>
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    
+
 <script>
     // Logout button click to show the confirmation popup
     const logoutBtn = document.getElementById('logoutBtn');
@@ -194,54 +189,7 @@
     const popupCloseLogout = document.getElementById('popupCloseLogout');
     const confirmLogout = document.getElementById('confirmLogout');
     const cancelLogout = document.getElementById('cancelLogout');
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
 
-    logoutBtn.addEventListener('click', () => {
-        logoutPopupOverlay.classList.add('show'); // Show the logout confirmation popup
-    });
-
-    // Close the popup
-    popupCloseLogout.addEventListener('click', () => {
-        logoutPopupOverlay.classList.remove('show'); // Close the popup
-    });
-
-    // Confirm logout and perform actions like redirecting or clearing sessions
-    confirmLogout.addEventListener('click', () => {
-    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-});
-
-
-    // Cancel the logout action and close the popup
-    cancelLogout.addEventListener('click', () => {
-        logoutPopupOverlay.classList.remove('show'); // Close the popup
-    });
-</script>
->>>>>>> Stashed changes
-
-    logoutBtn.addEventListener('click', () => {
-        logoutPopupOverlay.classList.add('show'); // Show the logout confirmation popup
-    });
-
-    // Close the popup
-    popupCloseLogout.addEventListener('click', () => {
-        logoutPopupOverlay.classList.remove('show'); // Close the popup
-    });
-
-    // Confirm logout and perform actions like redirecting or clearing sessions
-    confirmLogout.addEventListener('click', () => {
-    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-});
-
-
-    // Cancel the logout action and close the popup
-    cancelLogout.addEventListener('click', () => {
-        logoutPopupOverlay.classList.remove('show'); // Close the popup
-    });
-</script>
->>>>>>> Stashed changes
 
     logoutBtn.addEventListener('click', () => {
         logoutPopupOverlay.classList.add('show'); // Show the logout confirmation popup
@@ -264,7 +212,7 @@
     });
 </script>
 
->>>>>>> Stashed changes
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
