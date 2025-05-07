@@ -1,7 +1,8 @@
+/* Sidebar CSS */
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0; /* Initially visible on the left */
     height: 100vh;
     width: 250px;
     background-color: #f8f9fa;
@@ -10,77 +11,80 @@
     transition: transform 0.3s ease-in-out; /* For smooth toggle */
 }
 
-.sidebar.collapsed {
-    transform: translateX(-250px);
+/* Sidebar will slide off-screen when hidden */
+.sidebar.hidden {
+    transform: translateX(-250px); /* Move the sidebar off-screen */
 }
 
 .main-content {
-    position: relative; /* Required for overlay */
-    padding-left: 15%;
-    padding-right: 10%;
-    transition: transform 0.3s ease-in-out;
-    width: 100%;
-    background-color: white;
+    margin-left: 250px; /* Initially, content will shift to the right */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out; /* For smooth transition */
 }
 
-/* Overlay effect */
-.main-content.shifted::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark transparent overlay */
-    z-index: 1;
-    pointer-events: none;
+/* Main content shifted back when the sidebar is hidden */
+.main-content.no-sidebar {
+    margin-left: 0; /* Remove the left margin when sidebar is hidden */
 }
 
-/* Ensure actual content is above the overlay */
-.main-content > * {
-    position: relative;
-    z-index: 2;
-}
-
-.main-content.shifted {
-    transform: translateX(250px);
-}
-
+/* Toggle button position at the top right */
 .toggle-button {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 200px;
     background: none;
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 1020; /* Higher than sidebar */
-    display: none; /* Hidden on large screens */
+    z-index: 1020; /* Even higher than sidebar */
+    display: block; /* Show button on all screen sizes */
 }
 
-/* Mobile view adjustments */
+/* Sidebar responsiveness for smaller screens */
 @media (max-width: 768px) {
-    .toggle-button {
-        display: block;
-    }
-
     .sidebar {
-        transform: translateX(-250px); /* Hide sidebar by default */
+        transform: translateX(0); /* Sidebar visible on small screens */
     }
-
-    .sidebar.show {
-        transform: translateX(0); /* Show sidebar */
+    .sidebar.hidden {
+        transform: translateX(-250px); /* Hide the sidebar when toggled */
     }
-
     .main-content {
-        margin-left: 0;
+        margin-left: 0; /* No left margin on small screens */
     }
+    .main-content.no-sidebar {
+        margin-left: 0; /* Remove left margin on small screens */
+    }
+}
 
-    .main-content.shifted {
-        transform: translateX(250px);
-    }
+/* this is log out */
 
-    .main-content.shifted::before {
-        background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay on mobile */
-    }
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+
+
+.popup-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+    
+}
+
+
+.popup-box {
+    background-color: #d8f3da;
+    width: 600px; /* ⬅️ Increase this value */
+    max-width: 95%; /* ⬅️ Adjust as needed */
+    box-shadow: 0 0 40px rgba(29, 231, 3, 0.699);
+    animation: scaleIn 0.3s ease-in-out;
+    padding: 2rem; /* default is 1rem from Bootstrap's p-4 */
+
 }

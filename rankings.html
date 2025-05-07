@@ -53,10 +53,24 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white btn btn-danger logout-button-container">
-                        <i class="fa-solid fa-sign-out-alt me-2"></i> Log Out
+                    <a href="#" class="nav-link text-white btn btn-danger logout-button-container" id="logoutBtn">
+                        <i class="fa-solid fa-sign-out-alt me-2"></i>
+                        Log Out
                     </a>
                 </li>
+
+                <!-- Logout Confirmation Popup -->
+<div class="popup-overlay" id="logoutPopupOverlay">
+    <div class="popup-box position-relative text-center p-4 rounded text-black bg-white">
+        <button class="btn-close position-absolute top-0 end-0 m-3" id="popupCloseLogout" aria-label="Close"></button>
+
+        <h4 class="mb-2">Are you sure you want to log out?</h4>
+        <div class="mt-4">
+            <button class="btn btn-success" id="confirmLogout" >Yes</button>
+            <button class="btn btn-danger" id="cancelLogout">No</button>
+        </div>
+    </div>
+</div>
             </ul>
             <hr>
         </div>
@@ -167,5 +181,36 @@
             mainContent.classList.toggle('no-sidebar');
         });
     </script>
+
+    
+
+<script>
+    // Logout button click to show the confirmation popup
+    const logoutBtn = document.getElementById('logoutBtn');
+    const logoutPopupOverlay = document.getElementById('logoutPopupOverlay');
+    const popupCloseLogout = document.getElementById('popupCloseLogout');
+    const confirmLogout = document.getElementById('confirmLogout');
+    const cancelLogout = document.getElementById('cancelLogout');
+
+    logoutBtn.addEventListener('click', () => {
+        logoutPopupOverlay.classList.add('show'); // Show the logout confirmation popup
+    });
+
+    // Close the popup
+    popupCloseLogout.addEventListener('click', () => {
+        logoutPopupOverlay.classList.remove('show'); // Close the popup
+    });
+
+    // Confirm logout and perform actions like redirecting or clearing sessions
+    confirmLogout.addEventListener('click', () => {
+    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+});
+
+
+    // Cancel the logout action and close the popup
+    cancelLogout.addEventListener('click', () => {
+        logoutPopupOverlay.classList.remove('show'); // Close the popup
+    });
+</script>
 </body>
 </html>

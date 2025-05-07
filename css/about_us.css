@@ -1,80 +1,76 @@
-/* Base layout */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 250px;
-    background-color: #198754;
+    background-color: #f8f9fa;
     padding-top: 20px;
-    z-index: 1010;  /* Higher than default content */
-    transition: transform 0.3s ease-in-out;
+    z-index: 1010; /* Higher than default content */
+    transition: transform 0.3s ease-in-out; /* For smooth toggle */
+}
+
+.sidebar.collapsed {
     transform: translateX(-250px);
 }
 
-.sidebar.show {
-    transform: translateX(0);
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out; /* For smooth toggle */
+}
+
+.main-content.collapsed {
+    margin-left: 0;
 }
 
 .toggle-button {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 1020;
-    background-color: white;
-    border-radius: 5px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1020; /* Even higher than sidebar */
+    display: none; /* Initially hidden on larger screens */
 }
 
-.main-content {
-    position: relative;
-    margin-left: 0;
-    padding: 20px;
-    transition: transform 0.3s ease-in-out;
-    background-color: white;
+.container {
+    max-width: 80%;
+    
+    border: none;
+  }
+  /* Or */
+  .card {
+    max-width: 75%;
+    justify-content: space-between;
+    border: none;
+  }
+  .container {
+    padding: 0;
+  }
+
+.profile{
+    max-width: 60%;
 }
 
-/* Dimming effect on shift */
-.main-content.shifted::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
-    z-index: 1;
-    pointer-events: none;
-}
 
-/* Ensure child content (like .card) stays above overlay */
-.main-content > * {
-    position: relative;
-    z-index: 2;
-}
-
-.main-content.shifted {
-    transform: translateX(250px);
-}
-
-/* Profile image styling */
-.profile {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-
-/* Responsive tweaks */
-@media (min-width: 769px) {
-    .sidebar {
-        transform: translateX(0);
-    }
+/* Show toggle button on smaller screens */
+@media (max-width: 768px) {
     .toggle-button {
-        display: none;
+        display: block;
+    }
+    .sidebar {
+        transform: translateX(-250px); /* Initially hidden on small screens */
+    }
+    .sidebar.show {
+        transform: translateX(0); /* Show sidebar when toggled */
     }
     .main-content {
-        margin-left: 250px;
-        transform: none !important;
+        margin-left: 0; /* No left margin on small screens */
     }
-
-    .main-content::before {
-        /* Prevent dim on large screens (optional) */
-        display: none;
+    .main-content.shifted {
+        margin-left: 250px; /* Shift content when sidebar is shown */
     }
 }
