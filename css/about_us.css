@@ -1,0 +1,80 @@
+/* Base layout */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #198754;
+    padding-top: 20px;
+    z-index: 1010;  /* Higher than default content */
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-250px);
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1020;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.main-content {
+    position: relative;
+    margin-left: 0;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+}
+
+/* Dimming effect on shift */
+.main-content.shifted::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Ensure child content (like .card) stays above overlay */
+.main-content > * {
+    position: relative;
+    z-index: 2;
+}
+
+.main-content.shifted {
+    transform: translateX(250px);
+}
+
+/* Profile image styling */
+.profile {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Responsive tweaks */
+@media (min-width: 769px) {
+    .sidebar {
+        transform: translateX(0);
+    }
+    .toggle-button {
+        display: none;
+    }
+    .main-content {
+        margin-left: 250px;
+        transform: none !important;
+    }
+
+    .main-content::before {
+        /* Prevent dim on large screens (optional) */
+        display: none;
+    }
+}
