@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResponSeek - Rankings</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome and other icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/ranking.css">
+</head>
+<body>
+
+    <!-- Toggle button -->
+    <button class="toggle-button btn btn-outline-info">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar bg-success text-white">
+        <div class="d-flex flex-column p-3">
+            <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img src="./img/real_logo.png" alt="ResponSeek Logo" height="30" class="me-2">
+                <span class="fs-4">ResponSeek</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link text-white">
+                        <i class="fa-solid fa-home me-2"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="rankings.html" class="nav-link text-white active" aria-current="page">
+                        <i class="fa-solid fa-list-ol me-2"></i> Rankings
+                    </a>
+                </li>
+                <li>
+                    <a href="about_us.html" class="nav-link text-white">
+                        <i class="fa-solid fa-info-circle me-2"></i> About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-link text-white">
+                        <i class="fa-solid fa-envelope me-2"></i> Contact Us
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white btn btn-danger logout-button-container">
+                        <i class="fa-solid fa-sign-out-alt me-2"></i> Log Out
+                    </a>
+                </li>
+            </ul>
+            <hr>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="fs-1">Rankings</h1>
+
+        <!-- DAILY RANKING -->
+        <section class="mb-5 ranking-section">
+            <h3 class="text-center fw-bold mb-3">🏅 Daily Rankings</h3>
+            <div id="dailyCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner text-center rounded shadow">
+                    <div class="carousel-item active">
+                        <div class="rank-box text-white p-4 rounded d-flex flex-column align-items-center" style="background-color: #FFD700;">
+                            <img src="./img/res_6.jpeg" class="rounded-circle profile-icon mb-3" alt="Profile picture of Tralala">
+                            <h2 class="mb-1">Rank 1</h2>
+                            <h4 class="fw-bold">Tralala</h4>
+                            <p><i class="fa-solid fa-star me-1"></i> <strong>Points:</strong> 300</p>
+                            <p><i class="fa-solid fa-clipboard-check me-1"></i> <strong>Surveys Answered:</strong> 10</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="rank-box text-white p-4 rounded d-flex flex-column align-items-center" style="background-color: #C0C0C0;">
+                            <img src="./img/res_2.jpeg" class="rounded-circle profile-icon mb-3" alt="Profile">
+                            <h2 class="mb-1">Rank 2</h2>
+                            <h4 class="fw-bold">Jessica J.</h4>
+                            <p><i class="fa-solid fa-star me-1"></i> <strong>Points:</strong> 280</p>
+                            <p><i class="fa-solid fa-clipboard-check me-1"></i> <strong>Surveys Answered:</strong> 9</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="rank-box text-white p-4 rounded d-flex flex-column align-items-center" style="background-color: #cd7f32;">
+                            <img src="./img/res_5.jpeg" class="rounded-circle profile-icon mb-3" alt="Profile">
+                            <h2 class="mb-1">Rank 3</h2>
+                            <h4 class="fw-bold">Cardo</h4>
+                            <p><i class="fa-solid fa-star me-1"></i> <strong>Points:</strong> 260</p>
+                            <p><i class="fa-solid fa-clipboard-check me-1"></i> <strong>Surveys Answered:</strong> 8</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#dailyCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#dailyCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- WEEKLY RANKING -->
+        <section class="ranking-section">
+            <h3 class="text-center fw-bold mb-3">🏆 Weekly Rankings</h3>
+            <div id="weeklyCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner text-center rounded shadow">
+                    <div class="carousel-item active">
+                        <div class="rank-box text-white p-4 rounded d-flex flex-column align-items-center" style="background-color: #FFD700;">
+                            <img src="./img/res_1.jpeg" class="rounded-circle profile-icon mb-3" alt="Profile">
+                            <h2 class="mb-1">Rank 1</h2>
+                            <h4 class="fw-bold">Tatay Digong</h4>
+                            <p><i class="fa-solid fa-star me-1"></i> <strong>Points:</strong> 1200</p>
+                            <p><i class="fa-solid fa-clipboard-check me-1"></i> <strong>Surveys Answered:</strong> 45</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="rank-box text-white p-4 rounded d-flex flex-column align-items-center" style="background-color: #C0C0C0;">
+                            <img src="./img/res_4.jpeg" class="rounded-circle profile-icon mb-3" alt="Profile">
+                            <h2 class="mb-1">Rank 2</h2>
+                            <h4 class="fw-bold">Candice Trillion</h4>
+                            <p><i class="fa-solid fa-star me-1"></i> <strong>Points:</strong> 1100</p>
+                            <p><i class="fa-solid fa-clipboard-check me-1"></i> <strong>Surveys Answered:</strong> 43</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="rank-box text-white p-4 rounded d-flex flex-column align-items-center" style="background-color: #cd7f32;">
+                            <img src="./img/res_3.jpeg" class="rounded-circle profile-icon mb-3" alt="Profile">
+                            <h2 class="mb-1">Rank 3</h2>
+                            <h4 class="fw-bold">Just Joking</h4>
+                            <p><i class="fa-solid fa-star me-1"></i> <strong>Points:</strong> 1000</p>
+                            <p><i class="fa-solid fa-clipboard-check me-1"></i> <strong>Surveys Answered:</strong> 40</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#weeklyCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#weeklyCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap JS (load at end of body for better performance) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Sidebar toggle JS -->
+    <script>
+        document.querySelector('.toggle-button').addEventListener('click', () => {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('no-sidebar');
+        });
+    </script>
+</body>
+</html>
