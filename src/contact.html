@@ -57,14 +57,27 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white btn btn-danger logout-button-container">
+                    <a href="#" class="nav-link text-white btn btn-danger logout-button-container" id="logoutBtn">
                         <i class="fa-solid fa-sign-out-alt me-2"></i>
                         Log Out
                     </a>
                 </li>
-            </ul>
-            <hr>
+
+                <!-- Logout Confirmation Popup -->
+<div class="popup-overlay" id="logoutPopupOverlay">
+    <div class="popup-box position-relative text-center p-4 rounded text-black bg-white">
+        <button class="btn-close position-absolute top-0 end-0 m-3" id="popupCloseLogout" aria-label="Close"></button>
+
+        <h4 class="mb-2">Are you sure you want to log out?</h4>
+        <div class="mt-4">
+            <button class="btn btn-success" id="confirmLogout" >Yes</button>
+            <button class="btn btn-danger" id="cancelLogout">No</button>
         </div>
+    </div>
+</div>
+
+
+                    
     </aside>
 
     <main class="main-content">
@@ -109,7 +122,32 @@
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
                 <label for="floatingTextarea2">Comments</label>
               </div>
+<<<<<<< Updated upstream
     
+=======
+
+
+              <div class="d-grid gap-2 col-6 mx-auto py-5">
+                <button class="btn btn-primary" id="submitBtn" type="button" style="height: 3rem;">Submit</button>
+            </div>
+
+
+              <div class="popup-overlay" id="popupOverlay">
+                <div class="popup-box  position-relative text-center p-4 rounded">
+                    <button class="btn-close position-absolute top-0 end-0 m-3" id="popupClose" aria-label="Close"></button>
+                    
+                    <div class="check-icon mb-3 ">
+                        <i class="fa-solid fa-circle-check fa-3x text-success"></i>
+                    </div>
+            
+                    <h4 class="mb-2">Form Submitted!</h4>
+                    <p class="mb-4">Thank you for reaching out. We'll get back to you shortly.</p>
+            
+                </div>
+            </div>
+
+          
+>>>>>>> Stashed changes
     
         </main>
           
@@ -135,6 +173,38 @@
         });
     </script>
 
+<<<<<<< Updated upstream
+=======
+<script>
+    // Logout button click to show the confirmation popup
+    const logoutBtn = document.getElementById('logoutBtn');
+    const logoutPopupOverlay = document.getElementById('logoutPopupOverlay');
+    const popupCloseLogout = document.getElementById('popupCloseLogout');
+    const confirmLogout = document.getElementById('confirmLogout');
+    const cancelLogout = document.getElementById('cancelLogout');
+
+    logoutBtn.addEventListener('click', () => {
+        logoutPopupOverlay.classList.add('show'); // Show the logout confirmation popup
+    });
+
+    // Close the popup
+    popupCloseLogout.addEventListener('click', () => {
+        logoutPopupOverlay.classList.remove('show'); // Close the popup
+    });
+
+    // Confirm logout and perform actions like redirecting or clearing sessions
+    confirmLogout.addEventListener('click', () => {
+    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+});
+
+
+    // Cancel the logout action and close the popup
+    cancelLogout.addEventListener('click', () => {
+        logoutPopupOverlay.classList.remove('show'); // Close the popup
+    });
+</script>
+
+>>>>>>> Stashed changes
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>

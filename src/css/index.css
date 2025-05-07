@@ -55,3 +55,36 @@
         margin-left: 0; /* Remove left margin on small screens */
     }
 }
+
+/* this is log out */
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+
+
+.popup-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+    
+}
+
+
+.popup-box {
+    background-color: #d8f3da;
+    width: 600px; /* ⬅️ Increase this value */
+    max-width: 95%; /* ⬅️ Adjust as needed */
+    box-shadow: 0 0 40px rgba(29, 231, 3, 0.699);
+    animation: scaleIn 0.3s ease-in-out;
+    padding: 2rem; /* default is 1rem from Bootstrap's p-4 */
+
+}
