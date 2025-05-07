@@ -1,0 +1,86 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    z-index: 1010; /* Higher than default content */
+    transition: transform 0.3s ease-in-out; /* For smooth toggle */
+}
+
+.sidebar.collapsed {
+    transform: translateX(-250px);
+}
+
+.main-content {
+    position: relative; /* Required for overlay */
+    padding-left: 15%;
+    padding-right: 10%;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    background-color: white;
+}
+
+/* Overlay effect */
+.main-content.shifted::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark transparent overlay */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Ensure actual content is above the overlay */
+.main-content > * {
+    position: relative;
+    z-index: 2;
+}
+
+.main-content.shifted {
+    transform: translateX(250px);
+}
+
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1020; /* Higher than sidebar */
+    display: none; /* Hidden on large screens */
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .toggle-button {
+        display: block;
+    }
+
+    .sidebar {
+        transform: translateX(-250px); /* Hide sidebar by default */
+    }
+
+    .sidebar.show {
+        transform: translateX(0); /* Show sidebar */
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .main-content.shifted {
+        transform: translateX(250px);
+    }
+
+    .main-content.shifted::before {
+        background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay on mobile */
+    }
+}

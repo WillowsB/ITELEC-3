@@ -1,7 +1,8 @@
+/* Sidebar CSS */
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0; /* Initially visible on the left */
     height: 100vh;
     width: 250px;
     background-color: #f8f9fa;
@@ -10,47 +11,47 @@
     transition: transform 0.3s ease-in-out; /* For smooth toggle */
 }
 
-.sidebar.collapsed {
-    transform: translateX(-250px);
+/* Sidebar will slide off-screen when hidden */
+.sidebar.hidden {
+    transform: translateX(-250px); /* Move the sidebar off-screen */
 }
 
 .main-content {
-    margin-left: 250px;
+    margin-left: 250px; /* Initially, content will shift to the right */
     padding: 20px;
-    transition: margin-left 0.3s ease-in-out; /* For smooth toggle */
+    transition: margin-left 0.3s ease-in-out; /* For smooth transition */
 }
 
-.main-content.collapsed {
-    margin-left: 0;
+/* Main content shifted back when the sidebar is hidden */
+.main-content.no-sidebar {
+    margin-left: 0; /* Remove the left margin when sidebar is hidden */
 }
 
+/* Toggle button position at the top right */
 .toggle-button {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 200px;
     background: none;
     border: none;
     padding: 10px;
     cursor: pointer;
     z-index: 1020; /* Even higher than sidebar */
-    display: none; /* Initially hidden on larger screens */
+    display: block; /* Show button on all screen sizes */
 }
 
-/* Show toggle button on smaller screens */
+/* Sidebar responsiveness for smaller screens */
 @media (max-width: 768px) {
-    .toggle-button {
-        display: block;
-    }
     .sidebar {
-        transform: translateX(-250px); /* Initially hidden on small screens */
+        transform: translateX(0); /* Sidebar visible on small screens */
     }
-    .sidebar.show {
-        transform: translateX(0); /* Show sidebar when toggled */
+    .sidebar.hidden {
+        transform: translateX(-250px); /* Hide the sidebar when toggled */
     }
     .main-content {
         margin-left: 0; /* No left margin on small screens */
     }
-    .main-content.shifted {
-        margin-left: 250px; /* Shift content when sidebar is shown */
+    .main-content.no-sidebar {
+        margin-left: 0; /* Remove left margin on small screens */
     }
 }

@@ -1,0 +1,99 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    z-index: 1010; /* Higher than default content */
+    transition: transform 0.3s ease-in-out; /* For smooth toggle */
+}
+
+.sidebar.collapsed {
+    transform: translateX(-250px);
+}
+
+.main-content {
+    margin-left:8.5rem;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out; /* For smooth toggle */
+}
+
+.main-content.collapsed {
+    margin-left: 0;
+}
+
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1020; /* Even higher than sidebar */
+    display: none; /* Initially hidden on larger screens */
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    display: none;
+
+}
+
+.popup-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+    
+}
+
+.popup-box {
+    background-color: #d8f3da;
+    width: 600px; /* ⬅️ Increase this value */
+    max-width: 95%; /* ⬅️ Adjust as needed */
+    box-shadow: 0 0 40px rgba(29, 231, 3, 0.699);
+    animation: scaleIn 0.3s ease-in-out;
+    padding: 2rem; /* default is 1rem from Bootstrap's p-4 */
+
+}
+
+
+@keyframes scaleIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Show toggle button on smaller screens */
+@media (max-width: 768px) {
+    .toggle-button {
+        display: block;
+    }
+    .sidebar {
+        transform: translateX(-250px); /* Initially hidden on small screens */
+    }
+    .sidebar.show {
+        transform: translateX(0); /* Show sidebar when toggled */
+    }
+    .main-content {
+        margin-left: 0; /* No left margin on small screens */
+    }
+    .main-content.shifted {
+        margin-left: 250px; /* Shift content when sidebar is shown */
+    }
+}

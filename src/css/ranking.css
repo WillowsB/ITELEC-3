@@ -1,0 +1,71 @@
+
+/* Make images fit without being cut off */
+.carousel-inner img:not(.profile-icon) {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+/* Optional: Restrict max width for large screens */
+.carousel {
+    max-width: 1000px;
+    margin: 20px auto;     /* Center the carousel */
+}
+
+/* Adjust carousel items */
+.carousel-item h2 {
+    text-align: center;
+}
+
+/* Specific styling for profile images in rankings */
+.profile-icon {
+    width: 60px;
+    max-height: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* For older browsers without aspect-ratio support */
+@supports not (aspect-ratio: 16 / 9) {
+    .carousel-inner {
+        position: relative;
+        padding-top: 56.25%; /* 16:9 ratio (padding-top = height/width * 100) */
+    }
+
+    .carousel-inner .carousel-item {
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+    }
+    
+}
+
+
+
+/* Adjust for small screens */
+@media (max-width: 768px) {
+    .carousel-inner {
+        aspect-ratio: 16 / 9; /* Enforce 16:9 ratio on mobile */
+    }
+
+    .carousel-inner img {
+        height: 250px;  /* Adjust height for smaller screens */
+    }
+}
+
+/* Adjust for larger screens */
+@media (min-width: 768px) {
+    .carousel-inner {
+        aspect-ratio: unset;  /* Remove aspect-ratio constraint for larger screens */
+    }
+
+    .carousel-inner img {
+        object-fit: contain; /* Ensure images fit correctly */
+    }
+
+
+}
